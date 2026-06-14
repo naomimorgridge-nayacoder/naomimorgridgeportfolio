@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work, Naomi Morgridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FFFFFF;
+    --cream-dark: #F8F6F3;
+    --charcoal: #141414;
+    --charcoal-mid: #1E1E1E;
+    --crimson: #C4A882;
+    --crimson-light: #D4B992;
+    --warm-grey: #6B6560;
+    --divider: #E2DDD8;
+    --card-bg: #F8F6F3;
+    --crimson-accent: #8B1A1A;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--charcoal);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 56px;
+  }
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; letter-spacing: 0.04em;
+    color: var(--cream); font-weight: 600;
+  }
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+  .nav-links a {
+    color: #A8A09A; font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: color 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .nav-links a:hover { color: #E8A0A0; }
+
+  .hero {
+    padding: 160px 48px 100px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600; margin-bottom: 24px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 700; line-height: 1.05;
+    color: var(--charcoal); margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+  .hero-name em {
+    font-style: italic; color: var(--crimson-accent);
+  }
+  .hero-sub {
+    font-size: 17px; color: var(--warm-grey);
+    max-width: 560px; line-height: 1.75;
+    margin-bottom: 48px; font-family: 'DM Sans', sans-serif;
+  }
+  .hero-creds {
+    display: flex; gap: 40px; flex-wrap: wrap;
+  }
+  .hero-cred {
+    font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--charcoal); font-weight: 600;
+    border-left: 2px solid var(--crimson);
+    padding-left: 12px;
+  }
+
+  /* ── THESIS STRIP ── */
+  .thesis-strip {
+    background: var(--charcoal);
+    padding: 80px 48px;
+    position: relative; overflow: hidden;
+  }
+  .thesis-strip::before {
+    content: '';
+    position: absolute; top: 0; left: 0; bottom: 0;
+    width: 6px; background: var(--crimson);
+  }
+  .thesis-inner { max-width: 900px; margin: 0 auto; }
+  .thesis-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--crimson); margin-bottom: 24px; font-weight: 600;
+  }
+  .thesis-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--cream); line-height: 1.25;
+    font-weight: 400; font-style: italic;
+    border-left: 3px solid var(--crimson-accent);
+    padding-left: 28px;
+  }
+  .thesis-body {
+    margin-top: 32px; font-size: 16px;
+    color: #A8A09A; line-height: 1.8;
+    max-width: 680px; font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    padding: 96px 48px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600; margin-bottom: 16px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 700; line-height: 1.15;
+    color: var(--charcoal); margin-bottom: 48px;
+    letter-spacing: -0.01em;
+  }
+  hr.rule {
+    border: none; border-top: 1px solid var(--divider);
+    margin: 0;
+  }
+
+  /* ── FORMATION TIMELINE ── */
+  .formation-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px; background: var(--divider);
+  }
+  .formation-card {
+    background: var(--card-bg);
+    padding: 36px 32px;
+  }
+  .formation-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; color: var(--divider);
+    font-weight: 700; line-height: 1;
+    margin-bottom: 12px;
+  }
+  .formation-label {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600; margin-bottom: 10px;
+  }
+  .formation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 600;
+    color: var(--charcoal); margin-bottom: 12px;
+  }
+  .formation-body {
+    font-size: 14px; color: var(--warm-grey); line-height: 1.7;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ── IMPACT DASHBOARD ── */
+  .dashboard-bg {
+    background: var(--charcoal-mid);
+    padding: 96px 48px;
+  }
+  .dashboard-inner { max-width: 1100px; margin: 0 auto; }
+  .dashboard-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px; background: rgba(255,255,255,0.08);
+    margin-bottom: 48px;
+  }
+  .metric-tile {
+    background: var(--charcoal);
+    padding: 36px 28px;
+  }
+  .metric-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; font-weight: 700;
+    color: var(--cream); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .metric-number span {
+    font-size: 22px; color: var(--crimson);
+  }
+  .metric-label {
+    font-size: 12px; color: #8C7B6B;
+    line-height: 1.5; text-transform: uppercase;
+    letter-spacing: 0.06em; font-family: 'DM Sans', sans-serif;
+  }
+  .impact-table {
+    width: 100%; border-collapse: collapse;
+  }
+  .impact-table th {
+    text-align: left; padding: 12px 16px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .impact-table td {
+    padding: 14px 16px;
+    font-size: 14px; color: #A8A09A;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: top;
+  }
+  .impact-table tr:last-child td { border-bottom: none; }
+  .impact-table td:first-child { color: var(--cream); font-weight: 500; }
+
+  /* ── CASE STUDIES ── */
+  .case-study {
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .case-study:nth-child(even) { background: var(--card-bg); }
+  .case-inner { max-width: 1100px; margin: 0 auto; }
+
+  .case-header {
+    display: grid; grid-template-columns: 1fr 340px;
+    gap: 64px; margin-bottom: 56px; align-items: start;
+  }
+  .case-num {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--warm-grey); font-weight: 600; margin-bottom: 12px;
+  }
+  .case-tag {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600;
+    border: 1px solid var(--crimson); padding: 4px 10px;
+    margin-bottom: 16px; margin-right: 8px;
+  }
+  .case-tag:hover {
+    color: var(--crimson-accent);
+    border-color: var(--crimson-accent);
+  }
+  .case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700; line-height: 1.15;
+    color: var(--charcoal); margin-bottom: 16px;
+  }
+  .case-hook {
+    font-size: 16px; color: var(--warm-grey);
+    line-height: 1.7; font-style: italic;
+  }
+  .case-meta {
+    padding: 28px;
+    background: var(--charcoal);
+  }
+  .case-meta-row {
+    margin-bottom: 18px;
+  }
+  .case-meta-row:last-child { margin-bottom: 0; }
+  .case-meta-label {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600; margin-bottom: 4px;
+  }
+  .case-meta-value {
+    font-size: 13px; color: #A8A09A; line-height: 1.5;
+  }
+
+  /* Before / After */
+  .ba-strip {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px; background: var(--divider);
+    margin-bottom: 48px;
+  }
+  .ba-cell {
+    padding: 28px 24px;
+    background: var(--cream);
+  }
+  .ba-cell.intervention { background: var(--charcoal); }
+  .ba-cell-label {
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 10px;
+  }
+  .ba-cell .ba-cell-label { color: var(--warm-grey); }
+  .ba-cell.intervention .ba-cell-label { color: var(--crimson); }
+  .ba-cell-text {
+    font-size: 14px; line-height: 1.65; color: var(--charcoal);
+  }
+  .ba-cell.intervention .ba-cell-text { color: #B8B0A8; }
+
+  /* Case body */
+  .case-body {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 48px; margin-bottom: 48px;
+  }
+  .case-col-title {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600; margin-bottom: 16px;
+  }
+  .case-col-text {
+    font-size: 15px; color: var(--charcoal); line-height: 1.75;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .case-bullets { list-style: none; padding: 0; }
+  .case-bullets li {
+    font-size: 15px; color: var(--charcoal);
+    padding: 8px 0 8px 20px;
+    border-bottom: 1px solid var(--divider);
+    position: relative; line-height: 1.6;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .case-bullets li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--crimson); font-weight: 700;
+  }
+
+  .outcome-tiles {
+    display: flex; gap: 2px; flex-wrap: wrap;
+    background: var(--divider); margin-bottom: 32px;
+  }
+  .outcome-tile {
+    background: var(--cream);
+    padding: 20px 24px; flex: 1; min-width: 140px;
+  }
+  .outcome-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 700; color: var(--charcoal);
+    line-height: 1;
+  }
+  .outcome-number sup {
+    color: var(--crimson-accent); font-size: 14px;
+  }
+  .outcome-desc {
+    font-size: 12px; color: var(--warm-grey);
+    margin-top: 4px; line-height: 1.5;
+  }
+
+  .strategic-takeaway {
+    border-left: 4px solid var(--crimson-accent);
+    padding: 20px 24px;
+    background: var(--cream-dark);
+    margin-top: 8px;
+  }
+  .strategic-takeaway-label {
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crimson-accent); font-weight: 600; margin-bottom: 8px;
+  }
+  .strategic-takeaway-text {
+    font-size: 15px; color: var(--charcoal); line-height: 1.7;
+    font-style: italic;
+  }
+
+  .gtv-tags {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px;
+  }
+  .gtv-tag {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--warm-grey); border: 1px solid var(--divider);
+    padding: 4px 10px; background: var(--cream-dark);
+  }
+
+  /* ── THOUGHT LEADERSHIP ── */
+  .thought-bg {
+    background: var(--cream-dark);
+    padding: 96px 48px;
+  }
+  .thought-inner { max-width: 1100px; margin: 0 auto; }
+  .thought-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px; background: var(--divider);
+  }
+  .thought-card {
+    background: var(--card-bg);
+    padding: 36px 32px;
+  }
+  .thought-pillar {
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600; margin-bottom: 12px;
+  }
+  .thought-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 600;
+    color: var(--charcoal); margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .thought-body {
+    font-size: 14px; color: var(--warm-grey); line-height: 1.7;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ── GTV EVIDENCE MAP ── */
+  .gtv-bg {
+    background: var(--charcoal);
+    padding: 96px 48px;
+  }
+  .gtv-inner { max-width: 1100px; margin: 0 auto; }
+  .gtv-table {
+    width: 100%; border-collapse: collapse;
+  }
+  .gtv-table th {
+    text-align: left; padding: 14px 16px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--crimson); font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .gtv-table td {
+    padding: 16px;
+    font-size: 14px; color: #A8A09A;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: top; line-height: 1.6;
+  }
+  .gtv-table tr:last-child td { border-bottom: none; }
+  .gtv-table td:first-child {
+    color: var(--cream); font-weight: 500; width: 24%;
+  }
+  .gtv-criteria-badge {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--crimson); border: 1px solid rgba(196,168,130,0.4);
+    padding: 2px 8px; margin: 2px 4px 2px 0;
+  }
+
+  /* ── CAPABILITIES ── */
+  .caps-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px; background: var(--divider);
+  }
+  .cap-card {
+    background: var(--card-bg);
+    padding: 36px 32px;
+  }
+  .cap-icon {
+    font-size: 28px; margin-bottom: 16px;
+  }
+  .cap-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--charcoal); margin-bottom: 12px;
+  }
+  .cap-body {
+    font-size: 14px; color: var(--warm-grey); line-height: 1.7;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    padding: 120px 48px;
+    text-align: center;
+    max-width: 760px; margin: 0 auto;
+  }
+  .closing-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700; line-height: 1.15;
+    color: var(--charcoal); margin-bottom: 32px;
+  }
+  .closing-title em { font-style: italic; color: var(--crimson-accent); }
+  .closing-body {
+    font-size: 17px; color: var(--warm-grey);
+    line-height: 1.8; margin-bottom: 48px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .contact-strip {
+    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+    padding: 40px 0;
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+  }
+  .contact-item {
+    font-size: 13px; color: var(--charcoal);
+    text-decoration: none; font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: color 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .contact-item:hover { color: var(--crimson); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 32px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; color: #6B6560;
+  }
+  .footer-note {
+    font-size: 12px; color: #5A5755;
+  }
+
+  /* ── RESPONSIVE ── */
+
+  /* ── GOLD RULE SYSTEM ── */
+  .gold-rule {
+    border: none;
+    border-top: 1px solid var(--crimson);
+    opacity: 0.5;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--crimson);
+    margin-right: 10px;
+    vertical-align: middle;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .hero, .section { padding: 100px 20px 64px; }
+    .thesis-strip { padding: 60px 20px; }
+    .case-header { grid-template-columns: 1fr; gap: 32px; }
+    .ba-strip { grid-template-columns: 1fr; }
+    .case-body { grid-template-columns: 1fr; gap: 32px; }
+    .case-study { padding: 60px 20px; }
+    .dashboard-bg, .thought-bg, .gtv-bg { padding: 64px 20px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .contact-strip { gap: 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Naomi Morgridge</span>
+  <ul class="nav-links">
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#casestudies">Work</a></li>
+    <li><a href="#thinking">Thinking</a></li>
+    <li><a href="#formation">Background</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Work · 2017–Present</p>
+  <h1 class="hero-name">
+    From Complexity<br>to <em>Commercial Clarity.</em>
+  </h1>
+  <p class="hero-sub">
+    Product marketing and GTM strategy for complex B2B products. I help technical products become easier to understand, sell, and adopt.
+  </p>
+  <div class="hero-creds">
+    <div class="hero-cred">MS Business Analytics · UMass Amherst · 4.0 GPA</div>
+    <div class="hero-cred">BS Economics · Covenant University</div>
+    <div class="hero-cred">Product Marketing Certified · PMA</div>
+    <div class="hero-cred">7+ Years · B2B Technology</div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- THESIS STRIP -->
+<section class="thesis-strip">
+  <div class="thesis-inner">
+    <p class="thesis-label">The Thesis</p>
+    <blockquote class="thesis-quote">
+      "Complex products need more than good technology. They need a clear market story."
+    </blockquote>
+    <p class="thesis-body">
+      A product can be technically strong and still be hard to buy if the market does not understand what changed, why it matters, why now, and why it should be trusted. That is where I do my best work. I sit between product, market, and revenue, turning technical value into messaging, campaigns, sales materials, buyer education, and commercial narratives that make the product easier to understand and easier to sell.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+<!-- CAPABILITIES -->
+<section id="capabilities" class="section">
+  <p class="section-eyebrow">Signature Capabilities</p>
+  <h2 class="section-title">What I repeatedly do<br>across different environments.</h2>
+  <div class="caps-grid">
+    <div class="cap-card">
+      <div class="cap-title">Turn technical products into market narratives</div>
+      <div class="cap-body">Positioning, messaging, buyer narratives, sales enablement. I take what experts build and make it clearer for the people who need to understand, evaluate, and buy it.</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-title">Build GTM systems, not just campaigns</div>
+      <div class="cap-body">Campaign architecture, launch planning, funnel strategy, event strategy, and follow-up motions. I care about the full path from market problem to buyer action, not just the campaign going live.</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-title">Read markets through data</div>
+      <div class="cap-body">Segmentation, research, performance analytics, ROI modeling. I love instinct and trying new things, but I also love measuring them against the data to see what is working and optimise from there.</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-title">Moving enterprise buyers from curious to confident</div>
+      <div class="cap-body">Buyer education, executive briefings, proof assets, stakeholder messaging, and sales support. Enterprise buyers do not move because a product sounds impressive. They move when the value is clear enough to defend internally.</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-title">Write content sales and executives can use</div>
+      <div class="cap-body">Briefs, product stories, thought leadership, competitive framing, webinar narratives, and customer-facing copy. Not content for the sake of content. Clear arguments that help people understand the product and make decisions.</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-title">Work cross-functionally without losing the thread</div>
+      <div class="cap-body">Product, sales, marketing, engineering, subject matter experts, and executives often see different parts of the same problem. I help connect those pieces into one coherent commercial story.</div>
+    </div>
+  </div>
+</section>
+<hr class="rule">
+
+<!-- CASE STUDIES -->
+<div id="casestudies">
+<style>
+/* ── TABBED CASE STUDY SYSTEM ── */
+.cs {
+  border-bottom: 1px solid var(--divider);
+}
+.cs-header {
+  padding: 56px 56px 0;
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 48px; align-items: start;
+}
+.cs-num {
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--warm-grey); font-weight: 600; margin-bottom: 10px;
+}
+.cs-tags { margin-bottom: 14px; }
+.cs-tag {
+  display: inline-block; font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--crimson); font-weight: 600;
+  border: 1px solid var(--divider); padding: 3px 8px;
+  margin-right: 6px; margin-bottom: 6px; background: var(--card-bg);
+}
+.cs-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 34px); font-weight: 700;
+  line-height: 1.15; color: var(--charcoal); margin-bottom: 12px;
+}
+.cs-hook {
+  font-size: 15px; color: var(--warm-grey);
+  line-height: 1.7; max-width: 620px;
+}
+.cs-meta-block {
+  min-width: 240px; padding: 24px;
+  background: var(--charcoal);
+}
+.cs-meta-row { margin-bottom: 14px; }
+.cs-meta-row:last-child { margin-bottom: 0; }
+.cs-meta-label {
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--crimson); font-weight: 600; margin-bottom: 3px;
+}
+.cs-meta-value { font-size: 13px; color: #A8A09A; line-height: 1.4; }
+
+/* Tabs */
+.cs-tabs {
+  display: flex; gap: 0;
+  border-bottom: 1px solid var(--divider);
+  padding: 0 56px; margin-top: 32px;
+  max-width: 1240px; margin-left: auto; margin-right: auto;
+}
+.cs-tab {
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 600; color: var(--warm-grey);
+  padding: 14px 24px; cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  font-family: 'DM Sans', sans-serif;
+  background: none; border-top: none; border-left: none; border-right: none;
+}
+.cs-tab:hover { color: var(--charcoal); }
+.cs-tab.active {
+  color: var(--charcoal);
+  border-bottom-color: var(--crimson-accent);
+}
+
+/* Tab panels */
+.cs-panels { max-width: 1240px; margin: 0 auto; padding: 0 56px 56px; }
+.cs-panel { display: none; padding-top: 40px; }
+.cs-panel.active { display: block; }
+
+/* Context panel */
+.cs-context {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  background: var(--charcoal); padding: 36px 40px; margin-bottom: 24px;
+}
+.cs-context p {
+  font-size: 14px; color: #A8A09A; line-height: 1.8; margin-bottom: 14px;
+}
+.cs-context p:last-child { margin-bottom: 0; }
+.cs-pullquote {
+  border-left: 3px solid var(--crimson-accent);
+  padding: 14px 18px; background: rgba(139,26,26,0.06);
+  font-size: 13px; color: #B8B0A8; line-height: 1.65;
+  font-style: italic; margin-top: 16px;
+}
+
+/* Before / During / After strip */
+.cs-bda {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px; background: var(--divider); margin-bottom: 24px;
+}
+.cs-bda-cell { background: var(--card-bg); padding: 24px 20px; }
+.cs-bda-cell.mid { background: var(--charcoal); }
+.cs-bda-label {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 8px; font-family: 'DM Sans', sans-serif;
+}
+.cs-bda-cell .cs-bda-label { color: var(--warm-grey); }
+.cs-bda-cell.mid .cs-bda-label { color: var(--crimson); }
+.cs-bda-text {
+  font-size: 14px; color: var(--charcoal); line-height: 1.65;
+}
+.cs-bda-cell.mid .cs-bda-text { color: #A8A09A; }
+
+/* Metrics row */
+.cs-metrics {
+  display: flex; gap: 2px; background: var(--divider); margin-bottom: 24px;
+}
+.cs-metric {
+  background: var(--card-bg); padding: 20px 24px; flex: 1;
+}
+.cs-metric-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 700; color: var(--charcoal);
+  line-height: 1; margin-bottom: 4px;
+}
+.cs-metric-label {
+  font-size: 11px; color: var(--warm-grey); line-height: 1.4;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Work grid — 2 col bullets */
+.cs-work-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  background: var(--divider);
+}
+.cs-work-item {
+  background: var(--card-bg); padding: 20px 24px;
+}
+.cs-work-title {
+  font-size: 12px; font-weight: 600; color: var(--charcoal);
+  margin-bottom: 4px; font-family: 'DM Sans', sans-serif;
+}
+.cs-work-desc {
+  font-size: 13px; color: var(--warm-grey); line-height: 1.6;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Results panel */
+.cs-results-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+}
+.cs-result-why {
+  font-size: 15px; color: var(--charcoal); line-height: 1.8;
+}
+.cs-result-why p { margin-bottom: 14px; }
+.cs-result-why p:last-child { margin-bottom: 0; }
+.cs-takeaway {
+  border-left: 3px solid var(--crimson-accent);
+  padding: 16px 20px; background: var(--card-bg); margin-top: 20px;
+}
+.cs-takeaway-label {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--crimson-accent); font-weight: 600; margin-bottom: 6px;
+  font-family: 'DM Sans', sans-serif;
+}
+.cs-takeaway-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; font-style: italic; color: var(--charcoal); line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .cs-header { grid-template-columns: 1fr; padding: 40px 20px 0; }
+  .cs-tabs { padding: 0 20px; overflow-x: auto; }
+  .cs-panels { padding: 0 20px 40px; }
+  .cs-context { grid-template-columns: 1fr; }
+  .cs-bda { grid-template-columns: 1fr; }
+  .cs-metrics { flex-wrap: wrap; }
+  .cs-work-grid { grid-template-columns: 1fr; }
+  .cs-results-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- ═══ CS1: USST ═══ -->
+<div class="cs">
+  <div class="cs-header">
+    <div>
+      <p class="cs-num">01 · Verisk Analytics</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Full Campaign Ownership</span>
+        <span class="cs-tag">Market Education</span>
+        <span class="cs-tag">Commercial Adoption</span>
+      </div>
+      <h3 class="cs-title">Turning a Model into a Market: U.S. Severe Thunderstorm</h3>
+      <p class="cs-hook">Severe thunderstorms are one of the most expensive catastrophe perils for U.S. insurers. Verisk had built a model to help the market understand that risk more clearly. My work was to build the GTM strategy around it.</p>
+    </div>
+    <div class="cs-meta-block">
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Organisation</div>
+        <div class="cs-meta-value">Verisk · CRS</div>
+      </div>
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Scope</div>
+        <div class="cs-meta-value">End-to-end · 1+ year</div>
+      </div>
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Audience</div>
+        <div class="cs-meta-value">U.S. insurers, reinsurers</div>
+      </div>
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Recognition</div>
+        <div class="cs-meta-value">Insurance Insider ILS Modelling Initiative of the Year</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-tabs" id="tabs1">
+    <button class="cs-tab active" onclick="switchTab('tabs1','panels1','context')">Context</button>
+    <button class="cs-tab" onclick="switchTab('tabs1','panels1','work')">The Work</button>
+    <button class="cs-tab" onclick="switchTab('tabs1','panels1','results')">Results</button>
+  </div>
+
+  <div class="cs-panels" id="panels1">
+    <div class="cs-panel active" data-panel="context">
+      <div class="cs-context">
+        <div>
+          <p>Severe thunderstorms are frequent, localised, and difficult to forecast, which makes them hard to price, model, and manage across a portfolio. The product had strong technical value, but the market still needed the story.</p>
+          <p>Insurers needed to understand what made the model different, why the peril required more attention, and how it could support better portfolio decisions. Competitors were also entering the space, which made the positioning window important.</p>
+        </div>
+        <div>
+          <p>This was not just a launch. It was a sustained market education and adoption campaign across messaging, content, webinars, email, LinkedIn, sales enablement, and internal alignment over 12+ months.</p>
+          <p>The work needed to be clear, consistent, and commercially useful across every channel where the model showed up.</p>
+        </div>
+      </div>
+      <div class="cs-bda">
+        <div class="cs-bda-cell">
+          <div class="cs-bda-label">When I Started</div>
+          <div class="cs-bda-text">A model the market did not yet know how to think about. No campaign, no channel strategy, no education programme. Competitors starting to move.</div>
+        </div>
+        <div class="cs-bda-cell mid">
+          <div class="cs-bda-label">What I Built</div>
+          <div class="cs-bda-text">Worked on positioning, messaging, and campaign strategy. Proposed and supported the first external webinar for the model, helped build internal buy-in, and ran campaigns across email, LinkedIn, brochures, and sales enablement over 12+ months.</div>
+        </div>
+        <div class="cs-bda-cell">
+          <div class="cs-bda-label">One Year Later</div>
+          <div class="cs-bda-text">8 of the top 10 U.S. insurers now use the model. 1,000+ webinar registrations. Winner: Insurance Insider ILS Modelling Initiative of the Year.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-panel" data-panel="work">
+      <div class="cs-work-grid">
+        <div class="cs-work-item">
+          <div class="cs-work-title">Market Research & Audience Mapping</div>
+          <div class="cs-work-desc">Mapped buyer segments across insurers, reinsurers, and brokers. Identified the decision-makers the campaign needed to move.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Positioning & Messaging Strategy</div>
+          <div class="cs-work-desc">Built the full positioning framework — what the model is, who it is for, why it matters now — translated for every buyer persona.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Campaign Architecture</div>
+          <div class="cs-work-desc">Designed the end-to-end campaign: objectives, channel mix, sequencing, and content plan built to sustain across 12+ months.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Content Creation</div>
+          <div class="cs-work-desc">Led creation of all content: brochures, email copy, LinkedIn posts, webinar scripts, sales decks, and executive briefing materials.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Webinar Strategy & Execution</div>
+          <div class="cs-work-desc">Proposed and supported the first external webinar for this model. Helped build internal buy-in, coordinated with subject matter experts, and supported a campaign that drove 1,000+ registrations.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Executive Alignment</div>
+          <div class="cs-work-desc">Secured senior stakeholder participation in webinars and external channels, ensuring the commercial narrative had leadership endorsement.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Sales Enablement</div>
+          <div class="cs-work-desc">Built competitive positioning frameworks, objection-handling guides, and buyer education assets for account managers.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Multi-Channel Execution</div>
+          <div class="cs-work-desc">Ran integrated campaigns across email, LinkedIn, digital, brochures, webinars, and sales — continuously, over 12+ months.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Competitive Response</div>
+          <div class="cs-work-desc">Monitored competitor activity and ensured the positioning stayed clear and differentiated throughout the campaign.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Performance Tracking</div>
+          <div class="cs-work-desc">Monitored performance across channels and optimised messaging, targeting, and content based on what was actually moving buyers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-panel" data-panel="results">
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-num">8/10</div>
+          <div class="cs-metric-label">Of the top U.S. insurers now use this model</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">1,000+</div>
+          <div class="cs-metric-label">Webinar registrations</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">🏆</div>
+          <div class="cs-metric-label">Insurance Insider ILS Modelling Initiative of the Year</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">12+</div>
+          <div class="cs-metric-label">Months of sustained execution</div>
+        </div>
+      </div>
+      <div class="cs-results-grid">
+        <div class="cs-result-why">
+          <p>This work shows how I approach product marketing for technical products. The product had the substance. My role was to make the value easier to understand, repeat, and trust across the market. Sustained GTM execution across 12+ months drove strong adoption and independent industry recognition.</p>
+        </div>
+        <div>
+          <div class="cs-takeaway">
+            <div class="cs-takeaway-label">The Shift</div>
+            <div class="cs-takeaway-text">"The product had the substance. My role was to make the value easier to understand, repeat, and trust across the market."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CS2: ARIUM ═══ -->
+<div class="cs">
+  <div class="cs-header">
+    <div>
+      <p class="cs-num">02 · Verisk Analytics</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Category Education</span>
+        <span class="cs-tag">2 Years</span>
+        <span class="cs-tag">Casualty Analytics</span>
+        <span class="cs-tag">Content Strategy</span>
+        <span class="cs-tag">Executive Events</span>
+      </div>
+      <h3 class="cs-title">Building a Market from the Inside Out: Arium Casualty Analytics</h3>
+      <p class="cs-hook">Property catastrophe modelling is a mature market. Casualty CAT analytics is not. Many buyers were still learning how to think about liability accumulation and the role of analytics in understanding casualty risk. The work was not only about promoting Arium. It was also about helping the market understand the category.</p>
+    </div>
+    <div class="cs-meta-block">
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Organisation</div>
+        <div class="cs-meta-value">Verisk · Arium</div>
+      </div>
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Scope</div>
+        <div class="cs-meta-value">End-to-end · 2 years</div>
+      </div>
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Audience</div>
+        <div class="cs-meta-value">Casualty underwriters, reinsurers</div>
+      </div>
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">My Role</div>
+        <div class="cs-meta-value">GTM, positioning, web, content, events, sales enablement</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-tabs" id="tabs2">
+    <button class="cs-tab active" onclick="switchTab('tabs2','panels2','context')">Context</button>
+    <button class="cs-tab" onclick="switchTab('tabs2','panels2','work')">The Work</button>
+    <button class="cs-tab" onclick="switchTab('tabs2','panels2','results')">Results</button>
+  </div>
+
+  <div class="cs-panels" id="panels2">
+    <div class="cs-panel active" data-panel="context">
+      <div class="cs-context">
+        <div>
+          <p>Property CAT buyers have decades of modelling history and a shared vocabulary. Casualty CAT buyers are being asked to quantify something they have always handled through experience: how their liability and workers comp books accumulate exposure to a single large event. The category was still forming.</p>
+          <p>Arium needed a clearer commercial voice inside Verisk's broader casualty analytics story. The product was being repositioned, the web presence needed work, and the audience needed more education around why casualty CAT mattered.</p>
+        </div>
+        <div>
+          <p>The challenge was to support an evolving product while building trust with existing users and introducing the story to a wider market.</p>
+          <div class="cs-pullquote">"The work was not only about promoting Arium. It was also about helping the market understand the category."</div>
+        </div>
+      </div>
+      <div class="cs-bda">
+        <div class="cs-bda-cell">
+          <div class="cs-bda-label">When I Started</div>
+          <div class="cs-bda-text">Strong product, no unified GTM, no buyer-facing narrative, and no event presence. The market category was still forming. Most buyers did not yet have the vocabulary for what Arium offered.</div>
+        </div>
+        <div class="cs-bda-cell mid">
+          <div class="cs-bda-label">What I Built</div>
+          <div class="cs-bda-text">Rebuilt the value proposition and messaging. Redesigned the web presence. Built and ran content, email, LinkedIn, and digital demand generation. Supported Liability Symposium London as the flagship executive event. Two years of consistent execution while the product was also evolving.</div>
+        </div>
+        <div class="cs-bda-cell">
+          <div class="cs-bda-label">Two Years Later</div>
+          <div class="cs-bda-text">Client base grew consistently. Mailing list scaled significantly. Strong content reach across casualty analytics posts. Arium pages now among the most-viewed in CRS. The market moved.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-panel" data-panel="work">
+      <div class="cs-work-grid">
+        <div class="cs-work-item">
+          <div class="cs-work-title">Positioning & Value Proposition</div>
+          <div class="cs-work-desc">Rebuilt the commercial narrative for Arium, including the value proposition, audience definition, key messages, and how it should be explained to different buyer groups.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Website Architecture</div>
+          <div class="cs-work-desc">Led the redesign of Arium's web presence within the CRS site. Oversaw the restructuring of information architecture, copy, and commercial positioning. Now ranks in the top 10 most-viewed pages across all of CRS.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Content Strategy & Creation</div>
+          <div class="cs-work-desc">Led creation of all content across the product lifecycle: thought leadership, technical explainers, buyer education, webinar scripts, email sequences, and sales collateral.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Demand Generation</div>
+          <div class="cs-work-desc">Built and ran demand generation across email, LinkedIn, and digital — moving casualty underwriters from category unawareness to active commercial consideration.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Sales Enablement</div>
+          <div class="cs-work-desc">Built competitive positioning tools, objection-handling frameworks, and buyer education materials for account managers selling into a sceptical emerging category.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Liability Symposium London</div>
+          <div class="cs-work-desc">Worked on Liability Symposium London, an executive event focused on liability risk and casualty analytics. Supported audience targeting, content, and commercial follow-up. The event helped move market interest into commercial opportunity.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Market Education & Performance</div>
+          <div class="cs-work-desc">Ran a sustained market education programme establishing Arium and Verisk as authoritative voices in casualty CAT. Monitored and optimised across all channels continuously.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-panel" data-panel="results">
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-num">10+</div>
+          <div class="cs-metric-label">Active clients, grown over 2 years of GTM work</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">30x</div>
+          <div class="cs-metric-label">Mailing list growth over the campaign period</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">10K+</div>
+          <div class="cs-metric-label">Reach across casualty model content</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">Top 10</div>
+          <div class="cs-metric-label">CRS pages by views — Arium pages I led the redesign of</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">Deals</div>
+          <div class="cs-metric-label">Closed from Liability Symposium London influence</div>
+        </div>
+      </div>
+      <div class="cs-results-grid">
+        <div class="cs-result-why">
+          <p>This work shows how I build GTM when the market is still forming. Arium needed category education, clear positioning, stronger proof, better web architecture, sales alignment, and consistent execution across channels.</p>
+          <p>The work helped turn a technically strong product into a clearer commercial story with clients, content, web presence, and closed revenue.</p>
+        </div>
+        <div>
+          <div class="cs-takeaway">
+            <div class="cs-takeaway-label">The Shift</div>
+            <div class="cs-takeaway-text">"Arium needed category education, clear positioning, stronger proof, better web architecture, sales alignment, and consistent execution. That is what I built."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CS3: INFINION ═══ -->
+<div class="cs">
+  <div class="cs-header">
+    <div>
+      <p class="cs-num">03 · Infinion Technologies</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Positioning & Messaging</span>
+        <span class="cs-tag">Competitive Strategy</span>
+        <span class="cs-tag">Sales Enablement</span>
+      </div>
+      <h3 class="cs-title">Making a Crowded Market Listen: Cybersecurity & AI for Banks and Governments</h3>
+      <p class="cs-hook">In a market where every vendor sounds the same, the product is never really the differentiator. The story is. I built the story from scratch — and the commercial results followed.</p>
+    </div>
+    <div class="cs-meta-block">
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Organisation</div>
+        <div class="cs-meta-value">Infinion Technologies</div>
+      </div>
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Portfolio</div>
+        <div class="cs-meta-value">Cybersecurity, AI, analytics</div>
+      </div>
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">Clients</div>
+        <div class="cs-meta-value">10+ enterprise clients · banks & government · multiple countries</div>
+      </div>
+      <div class="cs-meta-row">
+        <div class="cs-meta-label">My Role</div>
+        <div class="cs-meta-value">Product Manager · GTM, positioning, competitive intelligence, sales enablement</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-tabs" id="tabs3">
+    <button class="cs-tab active" onclick="switchTab('tabs3','panels3','context')">Context</button>
+    <button class="cs-tab" onclick="switchTab('tabs3','panels3','work')">The Work</button>
+    <button class="cs-tab" onclick="switchTab('tabs3','panels3','results')">Results</button>
+  </div>
+
+  <div class="cs-panels" id="panels3">
+    <div class="cs-panel active" data-panel="context">
+      <div class="cs-bda">
+        <div class="cs-bda-cell">
+          <div class="cs-bda-label">The Challenge</div>
+          <div class="cs-bda-text">Sales teams entering complex enterprise conversations without enough differentiated messaging, competitive framing, and buyer-specific materials. The product needed a clearer story that connected technical capability to the problems banks and government buyers actually cared about.</div>
+        </div>
+        <div class="cs-bda-cell mid">
+          <div class="cs-bda-label">What I Did</div>
+          <div class="cs-bda-text">Created positioning and messaging for enterprise banking and government buyers. Built pitch decks, RFP responses, competitive intelligence notes, objection-handling materials, battlecards, and customer-facing sales assets. Used customer feedback and buyer research to close the gap between how the product was being explained and what buyers needed to hear.</div>
+        </div>
+        <div class="cs-bda-cell">
+          <div class="cs-bda-label">The Results</div>
+          <div class="cs-bda-text">Win rate improved against established incumbents. Retention improved. Client base expanded across multiple countries, including tier-1 banking and government buyers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-panel" data-panel="work">
+      <div class="cs-work-grid">
+        <div class="cs-work-item">
+          <div class="cs-work-title">Positioning Built from Scratch</div>
+          <div class="cs-work-desc">Created a product narrative that made Infinion's offer legible, credible, and commercially relevant to enterprise banking and government buyers in a market where vendors sounded identical.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Full Sales Enablement Stack</div>
+          <div class="cs-work-desc">Built everything the sales team needed: pitch decks, RFP responses, competitive intelligence reports, objection-handling frameworks, battlecards, and product documentation.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Competitive Intelligence</div>
+          <div class="cs-work-desc">Ran ongoing competitive analysis and win/loss research, feeding insights back into positioning, messaging, and product roadmap decisions.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Market-Facing Commercial Lead</div>
+          <div class="cs-work-desc">Ran customer demos, responded to enterprise RFPs, served as the commercial voice in buyer conversations across tier-1 banks and government accounts in multiple countries.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Voice of Customer → Retention</div>
+          <div class="cs-work-desc">Used buyer persona research, customer interviews, and market intelligence to close the gap between how the product was marketed and what financial services buyers needed. Retention lifted from 76% to 84%.</div>
+        </div>
+        <div class="cs-work-item">
+          <div class="cs-work-title">Launch Execution</div>
+          <div class="cs-work-desc">Owned the full commercial motion for product launches: roadmap input, positioning, launch briefs, sales readiness, customer education, and post-launch retention.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-panel" data-panel="results">
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-num">↑ Win rate</div>
+          <div class="cs-metric-label">Improved against established incumbents</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">↑ Retention</div>
+          <div class="cs-metric-label">Measurable improvement over the engagement period</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">10+</div>
+          <div class="cs-metric-label">Enterprise clients across multiple countries</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-num">Banks + Gov</div>
+          <div class="cs-metric-label">Tier-1 banking and government clients</div>
+        </div>
+      </div>
+      <div class="cs-results-grid">
+        <div class="cs-result-why">
+          <p>This work taught me how closely product, sales, and marketing need to work together in complex B2B markets. The product did not need to sound bigger. It needed to become easier to understand, easier to defend, and easier to buy.</p>
+          <p>A 5% win rate improvement against established incumbents in enterprise cybersecurity is significant. These are long cycles with multiple stakeholders and heavy scrutiny. What moved it was clarity, not noise.</p>
+        </div>
+        <div>
+          <div class="cs-takeaway">
+            <div class="cs-takeaway-label">The Shift</div>
+            <div class="cs-takeaway-text">"The product did not need to sound bigger. It needed to become easier to understand, easier to defend, and easier to buy."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(tabsId, panelsId, panel) {
+  // Update tabs
+  const tabs = document.getElementById(tabsId).querySelectorAll('.cs-tab');
+  tabs.forEach((t, i) => {
+    t.classList.toggle('active', ['context','work','results'][i] === panel);
+  });
+  // Update panels
+  const panels = document.getElementById(panelsId).querySelectorAll('.cs-panel');
+  panels.forEach(p => {
+    p.classList.toggle('active', p.dataset.panel === panel);
+  });
+}
+</script>
+
+<!-- CS4: LEWA DIGITAL, REMOVED FOR NOW
+
+        <h3 class="case-title">Building a Product Studio: Strategy Before Code</h3>
+        <p class="case-hook">Most founders rush to build. The ones who last build the strategy first, the thinking, the positioning, the distribution plan, before a single line of code is written.</p>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-row">
+          <div class="case-meta-label">Organisation</div>
+          <div class="case-meta-value">Lewa Digital (Co-Founder)</div>
+        </div>
+        <div class="case-meta-row">
+          <div class="case-meta-label">Model</div>
+          <div class="case-meta-value">Product studio, strategy, design, engineering</div>
+        </div>
+        <div class="case-meta-row">
+          <div class="case-meta-label">Audience</div>
+          <div class="case-meta-value">Early-stage founders, SMEs, digital product teams</div>
+        </div>
+        <div class="case-meta-row">
+          <div class="case-meta-label">My Role</div>
+          <div class="case-meta-value">Co-founder, GTM strategy, thought leadership, brand positioning</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ba-strip">
+      <div class="ba-cell">
+        <div class="ba-cell-label">The Gap We Saw</div>
+        <div class="ba-cell-text">Early-stage founders and lean teams often rush into building without validating the business logic, the market assumption, or the distribution model. They spend capital on execution before the strategy is clear, and the product pays the price.</div>
+      </div>
+      <div class="ba-cell intervention">
+        <div class="ba-cell-label">What We Built</div>
+        <div class="ba-cell-text">A product studio built on a single thesis: strategy before code. Lewa Digital partners with founders and teams to clarify the what and why before touching the how. MVP validation, positioning, GTM planning, and digital product development, from idea to live.</div>
+      </div>
+      <div class="ba-cell">
+        <div class="ba-cell-label">What It Proves</div>
+        <div class="ba-cell-text">A live product studio with a growing content platform, verified presence, and a commercial model. Proof that I am not only employable, I am building. That I understand what it costs to take an idea from private clarity to public market, and I know how to compress that timeline.</div>
+      </div>
+    </div>
+
+    <div class="case-body">
+      <div>
+        <p class="case-col-title">What I Own</p>
+        <ul class="case-bullets">
+          <li>Brand positioning and market thesis: "Your product team, without the overhead"</li>
+          <li>Thought leadership strategy: a content calendar, insights platform, and public writing engine</li>
+          <li>Client advisory: helping founders build product strategy, positioning, and GTM clarity before they build</li>
+          <li>Public intellectual platform: essays on markets, strategy, product, and growth, the writing that builds long-term authority</li>
+        </ul>
+      </div>
+      <div>
+        <p class="case-col-title">Why This Matters</p>
+        <div class="case-col-text">
+          <p style="margin-bottom: 16px;">Founder work reveals what employment hides: how quickly ideas survive contact with real markets. Lewa Digital is proof that I have internalized that lesson, and turned it into a service offering for others navigating the same gap.</p>
+          <p>For GTV: this is evidence of contribution to digital technology outside of employment, building a company, creating digital infrastructure, publishing market insight, advising early-stage product teams.</p>
+        </div>
+        <div class="strategic-takeaway">
+          <div class="strategic-takeaway-label">Strategic Shift</div>
+          <div class="strategic-takeaway-text">"From employed strategist, to builder of commercial clarity at scale."</div>
+        </div>
+        </div>
+    </div>
+-->
+
+
+
+</div><!-- /casestudies -->
+
+<!-- THOUGHT LEADERSHIP -->
+<div id="thinking" class="thought-bg">
+  <div class="thought-inner">
+    <p class="section-eyebrow">Proof of Thinking</p>
+    <h2 class="section-title">Writing & published work.</h2>
+    <p style="font-size: 16px; color: var(--warm-grey); max-width: 640px; margin-bottom: 72px; line-height: 1.75;">Selected writing across marketing strategy, GTM, product thinking, and market analysis.</p>
+
+    <!-- ── SUBSECTION 1: PUBLISHED WRITING ── -->
+    <div>
+      <div style="display: flex; align-items: baseline; gap: 20px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <p class="section-eyebrow" style="margin-bottom: 0;">01 · Published Writing</p>
+        <span style="font-size: 13px; color: #8A8480;">Medium · February 2026</span>
+      </div>
+
+      <div style="background: var(--charcoal); padding: 48px;">
+          <div class="thought-pillar" style="margin-bottom: 20px; color: var(--gold);">Essay · Marketing Analytics · Medium</div>
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 20px;">Perhaps We Are All Thinking About Marketing Data Wrongly. Including Me.</div>
+          <div style="font-size: 15px; color: #A8A09A; line-height: 1.8; max-width: 680px; margin-bottom: 16px;">We have more data than we have ever had. More dashboards, more attribution models, more tools that promise to tell us exactly what is working. And yet most marketing teams are less strategic than they have ever been. Not because the data is wrong. Because we are asking the wrong questions.</div>
+          <div style="font-size: 15px; color: #A8A09A; line-height: 1.8; max-width: 680px; margin-bottom: 32px;">Most teams measure what they can control — impressions, clicks, open rates, MQLs — because the oldest excuse in the profession is that marketing cannot control revenue. This essay challenges that directly.</div>
+          <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap;">
+            <a href="https://medium.com/@naomi.morgridge/perhaps-we-are-all-thinking-about-marketing-data-wrongly-including-me-c1b565a4eefa" target="_blank" style="font-size: 12px; color: var(--crimson-accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; border: 1px solid var(--crimson-accent); padding: 10px 20px; display: inline-block;">Read on Medium →</a>
+            <span style="font-size: 13px; color: #8A8480;">Essay · Marketing Analytics</span>
+          </div>
+      </div>
+    </div>
+
+    
+
+<!-- ── SUBSECTION 2: VERISK ARTICLE ── -->
+    <div style="margin-top: 72px; margin-bottom: 72px;">
+      <div style="display: flex; align-items: baseline; gap: 20px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <p class="section-eyebrow" style="margin-bottom: 0;">02 · Published Article</p>
+        <span style="font-size: 13px; color: #8A8480;">Verisk · Visualize Blog · May 2026</span>
+      </div>
+
+      <div style="background: var(--charcoal); padding: 48px;">
+          <div class="thought-pillar" style="margin-bottom: 20px; color: var(--gold);">Catastrophe Risk · Verisk.com</div>
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 20px;">Catastrophe Exposure Management: Taking More Ownership of the Risk</div>
+          <div style="font-size: 15px; color: #A8A09A; line-height: 1.8; max-width: 680px; margin-bottom: 16px;">This article looks at how insurers can take more ownership of catastrophe exposure management as property losses become harder to rely on historical averages for.</div>
+          <div style="font-size: 15px; color: #A8A09A; line-height: 1.8; max-width: 680px; margin-bottom: 32px;">The piece makes the case for a more active internal risk view, especially for midsize insurers that need stronger catastrophe analysis without building a large dedicated team.</div>
+          <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap;">
+            <a href="https://www.verisk.com/blog/catastrophe-exposure-management-taking-more-ownership-of-the-risk/" target="_blank" style="font-size: 12px; color: var(--crimson-accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; border: 1px solid var(--crimson-accent); padding: 10px 20px; display: inline-block;">Read on Verisk.com →</a>
+            <span style="font-size: 13px; color: #8A8480;">10 min read · Verisk · May 2026</span>
+          </div>
+      </div>
+    </div>
+
+
+    
+
+<!-- ── SUBSECTION 3: LINKEDIN WRITING ── -->
+    <div style="margin-bottom: 72px;">
+      <div style="display: flex; align-items: baseline; gap: 20px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <p class="section-eyebrow" style="margin-bottom: 0;">03 · 100 Days of Writing · LinkedIn</p>
+        <span style="font-size: 13px; color: #8A8480;">linkedin.com/in/naomimorgridge</span>
+      </div>
+      <p style="font-size: 15px; color: #6B6560; max-width: 620px; margin-bottom: 32px; line-height: 1.75;">A 100-day public writing commitment, publishing every day on strategy, markets, ambition, product, and the questions that follow me through every role. Not polished opinion pieces. Living thinking. Selected posts below.</p>
+
+      <div class="thought-grid">
+        <a href="https://www.linkedin.com/posts/naomimorgridge_b2b-buying-reality-ugcPost-7471937744395669505-g-aU/" target="_blank" class="thought-card" style="text-decoration:none;display:block;cursor:pointer;">
+          <div class="thought-pillar">PMM · GTM Strategy</div>
+          <div class="thought-title">B2B messaging is written as if the buyer is one person</div>
+          <div class="thought-body">Most B2B messaging is written for the champion. But the champion is rarely the only person in the room. On buying committees, internal selling, and why messaging has to survive the rooms sales never enters.</div>
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--divider);">
+            <span style="font-size: 12px; color: var(--crimson); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;">Read on LinkedIn →</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/naomimorgridge_on-brands-marketing-content-and-storytelling-activity-7468741027332526080-m35n" target="_blank" class="thought-card" style="text-decoration:none;display:block;cursor:pointer;">
+          <div class="thought-pillar">Content Strategy</div>
+          <div class="thought-title">Optimizing for Relevance in Marketing Content</div>
+          <div class="thought-body">Content does not fail because it is long or short. It fails when it is not relevant enough to the buyer, the moment, or the problem. On what relevance actually means in a B2B content strategy.</div>
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--divider);">
+            <span style="font-size: 12px; color: var(--crimson); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;">Read on LinkedIn →</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/naomimorgridge_100daysofwritingonlinkedin-b2bmarketing-gtm-share-7469939853078532096-jGRF/" target="_blank" class="thought-card" style="text-decoration:none;display:block;cursor:pointer;">
+          <div class="thought-pillar">GTM Strategy · Day 9</div>
+          <div class="thought-title">The multi-entry funnel</div>
+          <div class="thought-body">Buyers do not always enter through awareness. Every stage of your GTM motion needs to work as both a path forward and a possible front door. On why the linear funnel is the wrong mental model for most B2B businesses.</div>
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--divider);">
+            <span style="font-size: 12px; color: var(--crimson); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;">Read on LinkedIn →</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/naomimorgridge_100daysofwritingonlinkedin-activity-7468463035880439808-Vbs3" target="_blank" class="thought-card" style="text-decoration:none;display:block;cursor:pointer;">
+          <div class="thought-pillar">Product & Market Strategy · Day 5</div>
+          <div class="thought-title">Innovation is not newness</div>
+          <div class="thought-body">Innovation beyond novelty: usefulness, adoption, timing, trust, and whether the market is actually ready to change behaviour. New and innovative are not the same thing, and confusing them is expensive.</div>
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--divider);">
+            <span style="font-size: 12px; color: var(--crimson); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;">Read on LinkedIn →</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/naomimorgridge_one-thing-ive-learnt-over-the-years-is-that-activity-7467322377643667456-nUhc" target="_blank" class="thought-card" style="text-decoration:none;display:block;cursor:pointer;">
+          <div class="thought-pillar">GTM Strategy · Day 2</div>
+          <div class="thought-title">Before the Build</div>
+          <div class="thought-body">Execution cannot rescue a weak assumption. Good GTM starts by testing what must be true about the buyer, the market, and the value story — before you build anything around it.</div>
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--divider);">
+            <span style="font-size: 12px; color: var(--crimson); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;">Read on LinkedIn →</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/naomimorgridge_100daysofwritingonlinkedin-share-7469545141742247937-rp0_/" target="_blank" class="thought-card" style="text-decoration:none;display:block;cursor:pointer;">
+          <div class="thought-pillar">Writing · Thinking · Day 8</div>
+          <div class="thought-title">Writing Through Clarity and Uncertainty</div>
+          <div class="thought-body">Writing as a way of thinking through clarity, uncertainty, discipline, and unfinished ideas. On why the act of writing publicly is not about having answers, it is about finding them.</div>
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--divider);">
+            <span style="font-size: 12px; color: var(--crimson); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;">Read on LinkedIn →</span>
+          </div>
+        </a>
+      </div>
+
+      <div style="margin-top: 24px; text-align: right;">
+        <a href="https://www.linkedin.com/in/naomimorgridge" style="font-size: 13px; color: #6B6560; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; border-bottom: 1px solid rgba(138,127,120,0.3); padding-bottom: 2px;" target="_blank">Follow the full 100-day challenge on LinkedIn →</a>
+      </div>
+    </div>
+
+    
+
+  </div>
+</div>
+
+
+<hr class="rule">
+
+<!-- FORMATION -->
+<div id="formation">
+<style>
+.timeline {
+  max-width: 960px; margin: 0 auto; padding: 0 56px;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 56px; top: 0; bottom: 0;
+  width: 1px; background: var(--divider);
+}
+.tl-item {
+  display: grid; grid-template-columns: 120px 1fr;
+  gap: 40px; padding: 40px 0;
+  border-bottom: 1px solid var(--divider);
+  position: relative;
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-item::before {
+  content: '';
+  position: absolute; left: -8px; top: 48px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--crimson-accent);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--divider);
+}
+.tl-year {
+  font-size: 12px; letter-spacing: 0.08em;
+  color: var(--warm-grey); font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  padding-top: 4px;
+}
+.tl-content {}
+.tl-role {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700; color: var(--charcoal);
+  margin-bottom: 2px;
+}
+.tl-org {
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--crimson-accent); font-weight: 600; margin-bottom: 12px;
+  font-family: 'DM Sans', sans-serif;
+}
+.tl-body {
+  font-size: 14px; color: var(--warm-grey);
+  line-height: 1.7; font-family: 'DM Sans', sans-serif;
+}
+.tl-tags {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px;
+}
+.tl-tag {
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--warm-grey); border: 1px solid var(--divider);
+  padding: 2px 8px; background: var(--card-bg);
+  font-family: 'DM Sans', sans-serif;
+}
+@media (max-width: 900px) {
+  .timeline { padding: 0 20px; }
+  .timeline::before { left: 20px; }
+  .tl-item { grid-template-columns: 80px 1fr; gap: 20px; }
+  .tl-item::before { left: -8px; }
+}
+</style>
+
+<section class="section" style="padding-bottom: 0;">
+  <div class="container">
+    <p class="section-eyebrow">Background · 2017–Present</p>
+    <h2 class="section-title">The work that got me here.</h2>
+  </div>
+</section>
+
+<div class="timeline" style="margin-top: 48px; padding-bottom: 96px;">
+
+  <div class="tl-item">
+    <div class="tl-year">2013–2017</div>
+    <div class="tl-content">
+      <div class="tl-role">Bachelor of Science, Economics</div>
+      <div class="tl-org">Covenant University</div>
+      <div class="tl-body">Studied economics because I wanted to understand how systems work: incentives, institutions, markets, and why people behave the way they do. It gave me the analytical foundation that still shapes how I approach positioning, buyer behaviour, and market dynamics.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Economics</span>
+        <span class="tl-tag">Market Analysis</span>
+        <span class="tl-tag">Analytical Foundation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">2017–2018</div>
+    <div class="tl-content">
+      <div class="tl-role">Operations & GTM</div>
+      <div class="tl-org">GATE Academy · EdTech Startup</div>
+      <div class="tl-body">Joined an early-stage edtech startup as one of the first team members. Worked across marketing, operations, product launches, and customer-facing messaging. One of my first lessons in building with limited structure, learning quickly, and doing whatever the business needed.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">GTM</span>
+        <span class="tl-tag">Operations</span>
+        <span class="tl-tag">Early Stage</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">2018–2020</div>
+    <div class="tl-content">
+      <div class="tl-role">Marketing Strategy & Operations Lead</div>
+      <div class="tl-org">Shop Morgridge · Consumer Brand (Founded)</div>
+      <div class="tl-body">Started and ran my own consumer brand, owning brand identity, e-commerce, paid media, customer acquisition, operations, and suppliers. Grew digital revenue by 20% year over year and achieved 2x ROAS across paid channels. I eventually closed the business when I moved abroad. That experience taught me the difference between having a good idea and building something commercially sustainable.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Founder</span>
+        <span class="tl-tag">Performance Marketing</span>
+        <span class="tl-tag">E-Commerce</span>
+        <span class="tl-tag">Brand</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">2020–2021</div>
+    <div class="tl-content">
+      <div class="tl-role">Account Executive</div>
+      <div class="tl-org">Corporate Concepts Consulting</div>
+      <div class="tl-body">I went into field B2B sales deliberately because I wanted to understand buyers from the front line, not just in theory. Built a structured client needs assessment framework, improved lead-to-close conversion by 2%, mentored more than 10 account executives, and consistently exceeded weekly revenue targets. This role still shapes how I think about product marketing. Messaging has to survive real buyer conversations.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">B2B Sales</span>
+        <span class="tl-tag">Account Management</span>
+        <span class="tl-tag">Sales Enablement</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">2021–2022</div>
+    <div class="tl-content">
+      <div class="tl-role">Product Manager</div>
+      <div class="tl-org">Infinion Technologies · B2B Tech (Cybersecurity, Data & AI)</div>
+      <div class="tl-body">Owned product strategy, marketing, and sales enablement for cybersecurity, data, and AI products serving tier-1 banks and government clients across multiple countries. Built differentiated positioning in a crowded market, improved enterprise win rates by 5%, improved retention from 76% to 84%, responded to enterprise RFPs, and ran customer demos. This is where I started seeing product marketing as the translation layer between product value, buyer trust, and revenue.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Product Marketing</span>
+        <span class="tl-tag">Cybersecurity</span>
+        <span class="tl-tag">Sales Enablement</span>
+        <span class="tl-tag">Enterprise GTM</span>
+        <span class="tl-tag">Competitive Positioning</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">Jan–May 2024</div>
+    <div class="tl-content">
+      <div class="tl-role">Marketing Strategy Co-op</div>
+      <div class="tl-org">florrent Inc. · Clean Energy Startup</div>
+      <div class="tl-body">As part of my MS in Business Analytics, I completed a graduate co-op at florrent, a clean energy startup. Supported a $3M+ investment decision by building market analysis and commercial positioning materials for institutional investors. Validated product-market fit across industrial, transportation, and grid verticals, and built pipeline analytics models to improve revenue forecasting.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Market Analysis</span>
+        <span class="tl-tag">Investor Positioning</span>
+        <span class="tl-tag">PMF Validation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">2022–2024</div>
+    <div class="tl-content">
+      <div class="tl-role">MS Business Analytics</div>
+      <div class="tl-org">Isenberg School of Management · UMass Amherst</div>
+      <div class="tl-body">Completed my MS in Business Analytics with a 4.0 GPA, was inducted into Phi Kappa Phi, and served on the Graduate Advisory Council. The degree strengthened the analytical side of my commercial work: data modelling, pipeline analytics, performance measurement, and the discipline of reading what the numbers are actually saying.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Business Analytics</span>
+        <span class="tl-tag">Data Modeling</span>
+        <span class="tl-tag">Performance Measurement</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-year">2024–Present</div>
+    <div class="tl-content">
+      <div class="tl-role">Senior Marketing Specialist, Product Marketing & GTM Strategy</div>
+      <div class="tl-org">Verisk Analytics · Catastrophe & Risk Solutions</div>
+      <div class="tl-body">At Verisk, I work on positioning, messaging, and GTM execution for advanced catastrophe modelling and risk analytics products in the global insurance industry. My work spans campaign strategy, product launches, webinars, executive events, content, web copy, sales enablement, reporting, and market education. I have worked on campaigns for products used by major insurers, including a U.S. severe thunderstorm model now used by 8 of the top 10 U.S. insurers and recognised as Insurance Insider ILS Modelling Initiative of the Year.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Product Marketing</span>
+        <span class="tl-tag">GTM Strategy</span>
+        <span class="tl-tag">Campaign Management</span>
+        <span class="tl-tag">Sales Enablement</span>
+        <span class="tl-tag">Market Education</span>
+        <span class="tl-tag">Analytics</span>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</div>
+
+<hr class="rule">
+
+<!-- CLOSING -->
+<div>
+<div class="closing">
+  <h2 class="closing-title">What seven years<br>of this <em>actually</em> builds.</h2>
+  <p class="closing-body">
+    I have been in the field selling, sat inside products, built and closed my own business, earned a graduate degree in analytics, and spent the last two years running GTM for some of the most technically demanding products in the global insurance industry. Every role has been different. The job has always been the same: take something the market does not yet understand and build the commercial conditions for it to be trusted, adopted, and bought.
+  </p>
+  <p class="closing-body" style="font-family: 'Playfair Display', serif; font-size: 20px; color: var(--charcoal); font-style: italic;">
+    Most technical products never reach the market they deserve. I spend my days making sure they do.
+  </p>
+  <p class="closing-body">
+    I am not looking for just any role. I am looking for a product and market problem worth solving. If you have one, reach out.
+  </p>
+
+  <div id="contact" class="contact-strip">
+    <a href="mailto:naomi.morgridge@gmail.com" class="contact-item">naomi.morgridge@gmail.com</a>
+    <a href="https://www.linkedin.com/in/naomimorgridge" class="contact-item" target="_blank">linkedin.com/in/naomimorgridge</a>
+    <span class="contact-item">Boston, MA · Open to Global Relocation</span>
+  </div>
+</div>
+</div>
+
+<footer>
+  <span class="footer-name">Naomi Morgridge · Work Impact Portfolio</span>
+  <span class="footer-note">byNaomiMorgridge · 2017–Present</span>
+</footer>
+
+
+<script>
+// Smooth scroll for all anchor links — works on file:// and hosted
+document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      var offset = 64; // nav height
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
